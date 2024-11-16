@@ -147,7 +147,7 @@ if(dependenciesFulfilled){var callback=dependenciesFulfilled;dependenciesFulfill
 Module["preloadedImages"]={};Module["preloadedAudios"]={};function abort(what){if(Module['onAbort']){Module['onAbort'](what);}
 what+='';out(what);err(what);ABORT=true;EXITSTATUS=1;var output='abort('+what+') at '+stackTrace();what=output;throw new WebAssembly.RuntimeError(what);}
 var memoryInitializer=null;var dataURIPrefix='data:application/octet-stream;base64,';function isDataURI(filename){return String.prototype.startsWith?filename.startsWith(dataURIPrefix):filename.indexOf(dataURIPrefix)===0;}
-var wasmBinaryFile='sm64.us.f3dex2e.wasabi';if(!isDataURI(wasmBinaryFile)){wasmBinaryFile=locateFile(wasmBinaryFile);}
+var wasmBinaryFile='sm64.us.f3dex2e.wasm';if(!isDataURI(wasmBinaryFile)){wasmBinaryFile=locateFile(wasmBinaryFile);}
 function getBinary(){try{if(wasmBinary){return new Uint8Array(wasmBinary);}
 if(readBinary){return readBinary(wasmBinaryFile);}else{throw "both async and sync fetching of the wasm failed";}}
 catch(err){abort(err);}}
