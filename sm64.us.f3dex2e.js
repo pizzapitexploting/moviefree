@@ -7,7 +7,7 @@ read_=function shell_read(filename,binary){if(!nodeFS)nodeFS=require('fs');if(!n
 assert(ret.buffer);return ret;};if(process['argv'].length>1){thisProgram=process['argv'][1].replace(/\\/g,'/');}
 arguments_=process['argv'].slice(2);if(typeof module!=='undefined'){module['exports']=Module;}
 process['on']('uncaughtException',function(ex){if(!(ex instanceof ExitStatus)){throw ex;}});process['on']('unhandledRejection',abort);quit_=function(status){process['exit'](status);};Module['inspect']=function(){return '[Emscripten Module object]';};}else
-if(ENVIRONMENT_IS_SHELL){if(typeof read!='undefined'){read_=function shell_read(f){return read(f);};}
+if(ENVIRONMENT_IS_SHELL){if(typeof read!='undefined'){read_=function shell_read(f){return read(f);};}f
 readBinary=function readBinary(f){var data;if(typeof readbuffer==='function'){return new Uint8Array(readbuffer(f));}
 data=read(f,'binary');assert(typeof data==='object');return data;};if(typeof scriptArgs!='undefined'){arguments_=scriptArgs;}else if(typeof arguments!='undefined'){arguments_=arguments;}
 if(typeof quit==='function'){quit_=function(status){quit(status);};}
@@ -147,7 +147,7 @@ if(dependenciesFulfilled){var callback=dependenciesFulfilled;dependenciesFulfill
 Module["preloadedImages"]={};Module["preloadedAudios"]={};function abort(what){if(Module['onAbort']){Module['onAbort'](what);}
 what+='';out(what);err(what);ABORT=true;EXITSTATUS=1;var output='abort('+what+') at '+stackTrace();what=output;throw new WebAssembly.RuntimeError(what);}
 var memoryInitializer=null;var dataURIPrefix='data:application/octet-stream;base64,';function isDataURI(filename){return String.prototype.startsWith?filename.startsWith(dataURIPrefix):filename.indexOf(dataURIPrefix)===0;}
-var wasmBinaryFile='sm64.us.f3dex2e.wasm';if(!isDataURI(wasmBinaryFile)){wasmBinaryFile=locateFile(wasmBinaryFile);}
+var wasmBinaryFile='sm64.us.f3dex2e.wasabi';if(!isDataURI(wasmBinaryFile)){wasmBinaryFile=locateFile(wasmBinaryFile);}
 function getBinary(){try{if(wasmBinary){return new Uint8Array(wasmBinary);}
 if(readBinary){return readBinary(wasmBinaryFile);}else{throw "both async and sync fetching of the wasm failed";}}
 catch(err){abort(err);}}
